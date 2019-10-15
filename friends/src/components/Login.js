@@ -11,11 +11,10 @@ export default function Login(props) {
       password: passwordRef.current.value,
     })
       .then(res => {
-        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('token', res.data.payload)
         props.history.push('/friends');
       })
       .catch(error => {
-          debugger
         alert(error.message);
       });
   };

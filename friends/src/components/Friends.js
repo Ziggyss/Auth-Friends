@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Friend from './Friend';
 import axios from 'axios';
+import AddFriend from './AddFriend';
 // import axiosWithAuth from "../axios/axios";
 
 
@@ -18,8 +19,12 @@ function axiosWithAuth() {
   return instance;
 }
 
+
+
 export default function Friends() {
   const [friends, setFriends] = useState([]);
+  
+
 
   useEffect(() => {
     axiosWithAuth()
@@ -38,9 +43,13 @@ export default function Friends() {
       <h2>Friends</h2>
       <p>
       {friends.map(friend => 
-        <Friend friend={friend} />
+        <Friend friend={friend} key={friend.id}/>
       )}
       </p>
+      <h2>Add Friend</h2>
+      <AddFriend 
+      setFriends={setFriends}
+      />
     </div>
   );
 }

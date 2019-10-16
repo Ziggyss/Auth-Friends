@@ -3,13 +3,13 @@ import { Route, NavLink, withRouter, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Friends from "./Friends";
 
+
 export function Container(props) {
-  // const onLogout = () => {
+  const onLogout = () => {
+    localStorage.clear();
 
-  //   localStorage.clear();
-
-  //   props.history.replace("/");
-  // };
+    props.history.replace("/");
+  };
 
   return (
     <div className="container">
@@ -19,6 +19,9 @@ export function Container(props) {
             Login
           </NavLink>
           <NavLink to="/friends">Friends</NavLink>
+          {/* <NavLink  onClick={() => {
+          onLogout(props);
+        }} exact to="/">Log Out</NavLink> */}
         </span>
       </nav>
 

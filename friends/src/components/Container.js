@@ -2,7 +2,23 @@ import React from "react";
 import { Route, NavLink, withRouter, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Friends from "./Friends";
+import styled from "styled-components";
 
+const StyledNav = styled.div`
+display: flex;
+background: lightblue;
+text-decoration: none;
+color: white;
+justify-content: space-around;
+font-size: 16px;
+height: 50px;
+align-items: center;
+width: 800px;
+margin: 0 auto;
+button {
+  height: 25px;
+}
+`;
 
 export function Container(props) {
   const onLogout = () => {
@@ -14,15 +30,17 @@ export function Container(props) {
   return (
     <div className="container">
       <nav>
-        <span>
-          <NavLink exact to="/">
+        <StyledNav>
+          <button exact to="/">
             Login
-          </NavLink>
-          <NavLink to="/friends">Friends</NavLink>
+          </button> 
+          <h1>Friends App</h1>
+          <button to="/friends">Friends</button>
+         
           {/* <NavLink  onClick={() => {
           onLogout(props);
         }} exact to="/">Log Out</NavLink> */}
-        </span>
+        </StyledNav>
       </nav>
 
       <main>
